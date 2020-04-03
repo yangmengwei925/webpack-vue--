@@ -1,0 +1,45 @@
+
+git 60
+
+git
+
+  新建分支
+    git branch 分支的名字
+    git checkout -b 分支的名字 : 新建分支并切换
+  切换分支
+    git checkout 分支的名字
+  合并分支
+      dev
+    * master
+
+    git checkout master
+    git merge dev 墨汁 合并分支
+
+
+  回退上一个版本
+    git reset --hard HEAD^
+
+
+  穿梭到任意版本
+    git reset --hard abc321edf
+      abc321edf: 记录的id
+
+  查看日志
+    git log 查看当前时间点之前日志
+    git reflog 查看所有时间点的日志
+    git log --graph  图形化界面
+    git log --graph --pretty=oneline --abbrev-commit  简化版
+  查看状态
+    git status  当前文件在git中的状态
+      nothing  都提交了
+      modified 修改
+      new file  新建了一个文件 没有提交
+
+这节课 :
+  webpack
+
+作业1:
+ webpack 所有的代码都写完
+ webpack
+
+

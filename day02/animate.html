@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/animate.css">
+
+  <style>
+    .color0 {
+      width: 200px;
+      height: 200px;
+      background-color: #2f872f;
+      position: absolute;
+    }
+
+    .color1 {
+      width: 200px;
+      height: 200px;
+      background-color: #d14596;
+      left: 210px;
+      position: absolute;
+    }
+
+    .color2 {
+      width: 200px;
+      height: 200px;
+      background-color: #3521d1;
+      left: 420px;
+      position: absolute;
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <div class="wrap"></div>
+
+
+  <!--
+    实现动画
+    动画结束的回调 事件都是异步 : 异步中 顺序 实现动画
+
+    3个异步 如果按顺序执行应该咋办?回调 套 回调
+
+
+
+    //用es6语法来写
+    //转换成es5的代码 放到浏览器去执行
+  -->
+
+
+  <script>
+    // setTimeout(()=>{
+    //   setTimeout(()=>{
+    //
+    //     setTimeout(()=>{
+    //
+    //     },0)
+    //   },0)
+    // },0)
+
+
+    //Promise .then().then()
+    //缺点 : 没有根本解决回调的问题
+    //async  await
+    // async function f() {
+    //   await
+    //
+    // }
+
+
+  </script>
+
+  <script  type="module" src="distAnimate.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+
+版本回退
+git 命令
+
+git reset --hard HEAD^^ 回退到上个版本
+git log  查看信息 提交过的信息
+git log --pretty=oneline  美化查看的信息
+git reset --hard HEAD~100
+
+分支:
+  真正开发的时候 分支管理
+  创建一个项目 master分支 主分支
+  master代表的是稳定版本  1.0  2.0
+
+  dev:开发分支 2.0-->合并到master
+
+  基于dev分支创建属于自己的分支
+
+  zhang o-->o-->o
+  li    o-->o-->o
+  wang  o-->o-->o
+  dev              -->dev
+
+合作开发同一个项目
+  1:创建远程仓库
+  2:zhang 从远程仓库里面拉取代码
+    li
+  3:先新建一个dev 基于dev新建自己的分支 zhang li
+  4:合并代码
+  5:组长 新建一个项目 提交到远程仓库中
+    先关联远程库 git remote add origin https://gitee.com/bingyu123/test.git
+    提交到远程库 git push -u origin master
+  6:组长要开通组员权限
+  7:组员拉取代码
+    git clone https://gitee.com/bingyu123/test.git
+  8:查看分支结构 本地 远程
+    git branch -av
+  9:合作开发:
+    开发的分支 基于dev分支开发
+    组长创建dev分支
+  10: 创建分支
+    git branch dev 创建一个dev分支
+  11:切换到dev分支
+    git checkout dev 切换到dev分支
+  12:提交到远程
+    git push origin dev 把dev分支提交到远程
+  13:组员要做的事情: 把远程分支 pull到本地
+    git pull 从远程拉取最新代码
+  14:组员要在本地新建一个dev分支
+    git branch dev
+    git checkout dev
+  15:在dev的分支上新建自己的分支 (不需要上传到远程的)
+  16:分头开发
+    在zhang的分支上开发  开发完了 提交代码 提交到zhang的分支
+    git commit -m '为什么提交'
+  17:合并到dev分支
+    切换到dev分支
+    合并 zhang 分支上的代码
+    git merge zhang 这样就把zhang分支的代码合并到dev上
+  18:提交到远程
+    git push origin dev
+  19:li同学 要把代码弄到本地
+    首先在dev分支上
+    git pull origin dev
+
+
+
+li开发代码  --> li 分支 --> 合并li到dev -->远程dev
+zhang pull远程dev  git pull origin dev
+
+
+Fast-forward : 是一种快速合并的模式  没有冲突
+
+冲突
+  什么情况下出现冲突
+  两个人 修改同一个文件的时候 会出现冲突
+  zhang push到远程了
+  li    应该先pull一下  (error: failed to push some refs to 'https://gitee.com/bingyu123/test.git')
+  li : git pull origin dev
+    Automatic merge failed; fix conflicts and then commit the result.
+    自动合并失败; 请手动解决冲突之后再提交结果
+
+    let a = 20;
+    (function a() {
+
+      a = 10;
+    <<<<<<< HEAD  本地的代码
+      let c = 40;//li 同学加的代码
+    =======
+      let b = 20;//zhang 同学加的代码
+    >>>>>>> 3fe71a391bb8ce68dc49c8525e2fe48fd86576b3  远程的代码
+      console.log(a);
+    })();
+
+    自己删除 <<<<<<  =======  >>>>>>
+
+    再次提交一下 git add .  git commit -m
+
+    zhang: 再pull一下
+
+
+分支:
+  master   : 主干分支 正式发布 的时候提交  从dev合并的  (需要推送到远程)
+  dev      : 合并到dev 推送到远程 (需要推送到远程)
+  自己的分支 : 合并后可以随时删掉 开发代码的时候 需要从dev分支上新建分支 (不需要推送到远程)
+  bug      : 出问题怎么修复 临时分支 从master或者dev分支创建而来 修复bug 合并到dev/master 就可以删除  issue-101 (不需要推送到远程)
+  feature  : 添加新功能的时候 添加后 合并到dev分支 合并后就可以删了 (不需要推送到远程)
+
+补充 git的命令:
+  查看 git提交记录以图形化的形式展示 git log --graph --pretty=oneline --abbrev-commit
+  HEAD指针 只向谁 --> 当前所在的分支的一个记录点
+  每次提交(commit) 会生成一个记录
+    a2a81f2cf647ceeae603e1add2b40082716cddc0
+    3fe71a391bb8ce68dc49c8525e2fe48fd86576b3
+    25fd0e170cd5eee5a3a4e02397fa06445946b500
+  穿越:可以回到上一个版本
+  git reset --hard a2a81f2 回到记录的地方(写前几个字母)
+  git reflog : 可以查看历史记录信息 (所有的)
+  git log    : 只能查看当前记录以前的
+  git status : 状态
+      nothing to commit, working tree clean : 所有的代码都提交了
+
+      modified:   code.js  修改了code.js文件 但是没有提交
+        no changes added to commit (use "git add" and/or "git commit -a")
+
+      new file:   test.txt 新创建了一个文件  没有提交
+
+  作业发到群里:
+
+
+
+
+
+
+
+
+
+
+
+
+

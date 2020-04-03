@@ -1,0 +1,21 @@
+{
+  "name": "day02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/runtime": "^7.8.7"
+  },
+  "scripts": {
+    "dev": "npx babel ./src/animate.js -o distAnimate.js && browserify distAnimate.js -o distAnimate.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

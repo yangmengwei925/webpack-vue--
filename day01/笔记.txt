@@ -1,0 +1,85 @@
+
+
+实训一:
+  自律
+  你们要做的:
+    1:下载软件 typora 整理笔记
+      上传到git
+
+    2:
+      能力:
+        1:敲代码
+        2:表达能力
+          每天十分钟 : 知识点
+
+    3:互动:
+      提问一个人 不吱声
+
+
+    4:及时回应 收到
+
+    5:提前10分钟 进会议室 3次
+
+    6:作业: git 代码传到git上
+
+
+  1:git
+  2:架构 webpack
+  3:项目
+  4:vue 组件化
+  5:react hooks ts
+
+  认识一下:
+    介绍
+    开摄像头 时间没有达到3分钟 唱首歌
+    1:姓名 2:年龄 3:爱好 4:喜欢的人 5:目标
+
+
+  1:前端
+    - html js css jq + 响应式布局
+    - vue   2016年
+    - react 2015年
+    - webpack
+    - angular 2--8
+    - js 40%  webpack 20%  vue 20%  20%
+
+
+  2:后端  js
+    node
+    express
+    koa
+    egg
+
+
+  3:跨平台应用: js
+    RN - react-native  android/ios
+    flutter :  android/ios
+
+  4:游戏
+
+
+
+  项目:
+    git/svn :
+    项目:
+    1:仓库 -->  2:秘钥 --> 3:分支 -->合并到一起 --> 测试 -->上线
+
+      测试的分支: 改完了 合并到主分支
+      上线 master:预发分支  pre-production
+
+    2:码云:
+      1:地址 组长 每个人的分支
+
+    windows: 如果密码输入错了
+
+
+    babel:
+      转码:  es6-->es5的代码
+
+
+  作业:
+    使用babel 将es6代码 转换成es5  传递到git
+
+实训二:
+实训三:
+

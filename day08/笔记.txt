@@ -1,0 +1,126 @@
+
+一会找同学回答
+1. 自定义webpack配置文件名字
+   webpack.config.js  npx webpack
+   webpack.base.js    npx webpack --config webpack.base.js
+2. 项目开发中配置文件拆分成几个 分别是干什么的
+   3个
+    webpack.base.js
+    webpack.dev.js
+    webpack.prod.js
+    {smart} = require('merge')
+3. webpack中如何解决跨域问题
+   webpack.dev.js
+     如何解决跨域问题
+     devServer{
+      proxy:{
+        '/api':{
+          target:'http://localhost:3000/',
+          pathRewrite:{
+            '^/api':''
+          }
+        }
+      }
+     }
+4. 如何调试运行时代码
+   源码映射
+   devtool:'source-map'
+5. 如何设置别名
+   resolve:{
+    alias:{
+      '@':path.join(__dirname,'/src')
+    }
+   }
+
+
+//以后每天附加的作业:
+//整理单词 第二天 单词过一遍
+
+
+回顾:
+  webpack
+    跨域 : 3种  proxy:充当了服务器
+
+    devtool:'source-map'
+
+webpack: 打包
+  启动服务
+  压缩
+  今天 :
+  优化 :
+    1. webpack 打包后大小是多少
+    2. webpack 打包后上线了 出现白屏问题
+    3. 如何优化webpack打包后的文件的
+    4. webpack打包过程中 如何提升速度的
+
+
+    小白:没有用的文件不要引 线上使用production模式 文件拆分
+    进阶:大的文件 不引入包 放到cdn上
+    大牛:
+      webpack自带优化  不用
+        tree-sharking : 依赖解析 : 没用的代码 不会打包
+          注意:只有生产环境才有效
+        scope-hoisting
+          作用域提升 : 把一些没有用的变量 或者直接得出结果的变量忽略掉了
+          注意:只有生产环境才有效
+      自己配置的优化
+
+
+        速度
+          打包速度: npx webpack
+          加载速度: 打包之后 加载速度:文件的大小 网络情况
+
+        体积
+          先讲核心
+          动态链接库: webpack必杀技之一
+            抽离一些现有的第三方包 放在cdn上 不会出现白屏问题
+            1)创建一个文件 webpack.react.js : 打包react react-dom的包
+            2)文件的配置项 webpack基本配置是一样的
+              DllPlugin : 生成动态链接库
+            3)npx webpack --config webpack.react.js 打包单独的包
+            4)分离出文件
+
+            5)普通的配置文件中
+            DllReferencePlugin :引入动态链接库
+            6)发布到cdn 上 --> 快
+
+          npm 下载
+           npm i webpack -D  / -S
+           D: development : 下载包的时候 会下载到 devDependencies : 打包的时候不会打包到dist文件中
+            工具 eslint  babel  html-webpack-plugin 插件 工具
+           S: production 生产环境  下载包的时候 会下载到 dependencies:打包的时候 mode:production:会打包到dist文件
+            和代码逻辑有关的:打包到线上
+            和代码逻辑美观的:打包到开发环境
+
+            webpack -D
+            swiper -S
+
+            vue / react/ router
+            lodash
+            jquery  $('')
+
+           mode : production
+
+
+          公共代码的抽离: webpack必杀技之二
+
+
+          文件越小越好
+
+      明天答辩:
+        1: 每个人录制10分钟项目介绍 自己电脑里存着
+        2: 答辩流程 随机抽取第一个组
+          PPT
+          1)介绍项目
+          2)介绍组员
+          3)每个人说自己的模块
+          4)亮点+ 难点 +遇到的问题 + 怎么解决的
+          宝宝说
+          写了多少 讲多少
+          演示项目
+
+
+
+
+
+

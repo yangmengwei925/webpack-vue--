@@ -1,0 +1,30 @@
+
+回顾:
+  git babel:
+
+  babel: 干什么的 编译什么代码 --> es6 -->es5
+
+    通过插件:babel7
+      @babel/cli 命令 babel  npx
+      @babel/core 核心包
+      @babel/preset-env  预设包
+        @babel/preset-react  react预设包
+        @babel/preset-flow  flow预设包
+      @babel/polyfill : 垫片 将es6中的 数组 字符串 对象中的新方法 转换成es5
+      @babel/runtime : 运行时 提供了一些helper辅助函数 进一步简化代码
+      @babel/plugin-transform-runtime :  配合@babel/runtime的一个插件 .babelrc中配置
+
+      //generator  async 也是依赖 @babel/runtime 而转换的
+
+  作业:
+    1:按顺序执行动画 10个动画
+    2:点击按钮 在页面上随机生成圆 (面向对象)
+      用 bowserify  + babel 转换成es5的代码
+      插入到浏览器 运行
+      npm run dev
+
+  webpack :
+
+
+
+

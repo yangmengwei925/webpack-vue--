@@ -1,0 +1,101 @@
+
+1. webpack能做什么事情
+  代码转换 代码分割 自动刷新 文件优化 打包 模块的合并 自动发布
+2. webpack中常见的配置项都有哪些
+  entry : 入口
+  output : 出口 {
+      filename:'bundle.js',
+      path:绝对路径  path.join(__dirname,'./dist')
+
+    }
+  devServer:{
+    port:端口
+    contentBase:'静态资源文件',
+    ...
+  }//启动一个服务
+  module:{//模块
+    rules:[规则
+      {test:/\.css$/,
+        use:['style-loader','css-loader']
+      }
+
+    ]
+  },
+
+  plugins:插件[
+    new HtmlWebpackPlugin({}),
+  ]
+3. webpack中loader的加载顺序
+
+  先右后左
+  先下后上
+
+4. 如何处理代码中的js文件和es6文件
+  rules:[规则
+        {test:/\.js$/,
+          use:[{loader:'babel-loader',options:{
+            预设:es6代码,
+            plugins:[
+              ''
+            ]
+
+          }}]
+        }
+
+      ]
+5. 如何处理缓存问题
+  出口文件
+  filename:[hash] //1.0-->2.0
+
+
+
+1:webpack gulp:多页面
+  0)sass文件
+  1)小插件
+  2)css 压缩
+    //升级后自动压缩了
+    //只有线上的时候才需要压缩
+  3)分离 生产环境 开发环境
+  4)跨域
+
+  5)搭建vue脚手架  逼格更高一些
+
+    vue-loader : 识别 .vue文件
+      test:/\.vue$/
+
+    VueLoaderPlugin: 插件 必须配
+
+    1. 下载一个 vue-loader
+    2. let VueLoaderPlugin = require('vue-loader/lib/plugin');
+    3. plugins : new VueLoaderPlugin()
+    4. .vue loader:vue-loader
+        {
+              test: /\.vue$/,
+              use: [{
+                loader: 'vue-loader',
+                options: {
+                  //加载资源 <img src='./logo.png'>
+                  transformAssetUrls: {
+                    video: ['src', 'poster'],
+                    source: 'src',
+                    img: 'src',
+                    image: ['xlink:href', 'href'],
+                    use: ['xlink:href', 'href']
+                  },
+                  //识别 <template> 模板
+                  compiler: require('vue-template-compiler')
+                }
+              }]
+            }
+    5. 下载vue包
+
+
+  1:跨域 proxy
+  2:webpack 优化
+  3:调试
+  4:其他的配置
+
+
+
+
+

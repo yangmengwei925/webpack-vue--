@@ -1,0 +1,63 @@
+
+回顾:
+  1. webpack如何分离css文件
+
+
+     MiniCssExtractPlugin.loader 分离 css
+
+     link
+     style-loader
+
+     压缩css
+
+
+  2. webpack loader的加载顺序
+    从右向左
+    从下向上
+
+  3. 如何压缩代码
+    optimize-css-assets-webpack-plugin
+
+    optimization.minimizer:[new 插件]
+
+    问题:css可以压缩  js不可以压缩 terser-webpack-plugin
+
+  4. 如何搭建vue环境
+    vue-loader / dist/ plugin
+    module配置 .vue
+
+
+小问题:
+  css前缀没有加上
+  webpack升级了 检测机制更强了 指定规范
+
+1:跨域
+  产生跨域的原因:
+    前提 : 浏览器才会有跨域问题
+    跨域:一个域名 访问另一个域名
+    协议+   ip地址   +   端口  任意一个不同 都会产生跨域
+    http://192.168.1.1:3000
+
+
+    app 可以安装 C端开发
+    服务器: 不需要通过浏览器  服务器和服务器 请求 不会跨域的
+
+
+  解决跨域
+    针对webpack 处理跨域问题?
+
+  vue 代码 请求 服务器
+
+
+  1:设置源码映射
+  2:所有的选项都在一个文件中配置 webpack.config.js
+    公共的 :webpack.base.js
+    有一些 : 开发环境  devServer  devtool  webpack.dev.js
+    有一些 : 生产环境  压缩 webpack.prod.js
+
+  3:别名:
+
+
+
+
+
